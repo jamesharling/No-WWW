@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <location path="%XDT_SITENAME%" xdt:Transform="InsertIfMissing" xdt:Locator="Match(path)">
+    <system.webServer xdt:Transform="InsertIfMissing">
+      <rewrite xdt:Transform="InsertIfMissing">
+        <rules xdt:Transform="InsertIfMissing" lockElements="clear">
+          <rule name="Canonical Host Name" enabled="true" stopProcessing="true" lockItem="true">
+            <match url="(.*)" />
+            <conditions>
+              <add input="{HTTP_HOST}" pattern="^www[.](.*)$" ignoreCase="true" />
+            </conditions>
+            <action type="Redirect" url="{GetScheme:{HTTPS}}://{C:1}/{R:1}" appendQueryString="true" redirectType="Permanent" />
+          </rule>
+        </rules>
+        <rewriteMaps xdt:Transform="InsertIfMissing" lockElements="clear">
+          <rewriteMap name="GetScheme" defaultValue="OFF" lockItem="true">
+            <add key="OFF" value="http" />
+            <add key="ON"  value="https" />
+          </rewriteMap>
+        </rewriteMaps>
+      </rewrite>
+    </system.webServer>
+  </location>
+</configuration>

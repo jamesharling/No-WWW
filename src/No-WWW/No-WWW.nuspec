@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<package>
+  <metadata>
+    <id>No-WWW</id>
+    <title>Remove www domain prefix</title>
+    <version>0.9.0</version>
+    <authors>James Harling</authors>
+    <licenseUrl>https://github.com/jamesharling/No-WWW/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/jamesharling/No-WWW</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/jamesharling/No-WWW/master/docs/nuget-icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Azure App Service extension to remove the www prefix on requests.</description>
+    <tags>redirect remove www canonical domain host name</tags>
+  </metadata>
+  <files>
+    <file src="applicationHost.xdt" target="Content" />
+  </files>
+</package>
